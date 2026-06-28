@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PC Builder Pro - Build your dream gaming PC with compatibility checker, performance estimator, and budget optimizer.">
+  <title>PC Builder Pro | Build Your Dream Gaming PC</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="loading-screen">
+    <div class="loader-rgb"></div>
+    <div class="loading-text">LOADING</div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">⚡</div>
+        PC Builder Pro
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="builder.html">Builder</a>
+        <a href="products.html">Products</a>
+        <a href="compare.html">Compare</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <div class="search-bar" style="max-width:220px">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="global-search" placeholder="Search products...">
+          <div class="search-results-dropdown" id="search-dropdown"></div>
+        </div>
+        <a href="wishlist.html" class="nav-icon-btn" title="Wishlist">❤️<span class="badge-count wishlist-badge" style="display:none">0</span></a>
+        <a href="compare.html" class="nav-icon-btn" title="Compare">⚖️<span class="badge-count compare-badge" style="display:none">0</span></a>
+        <a href="saved-builds.html" class="nav-icon-btn" title="Saved Builds">💾</a>
+        <button class="theme-toggle" title="Toggle Theme">🌙</button>
+        <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="builder.html">PC Builder</a>
+    <a href="products.html">Products</a>
+    <a href="compare.html">Compare</a>
+    <a href="wishlist.html">Wishlist</a>
+    <a href="saved-builds.html">Saved Builds</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          #1 PC Building Platform in India
+        </div>
+        <h1 class="hero-title">
+          Build Your<br>
+          <span class="gradient">Dream Gaming PC</span>
+        </h1>
+        <p class="hero-desc">
+          Design, customize, and optimize your perfect gaming rig with our advanced compatibility checker, performance estimator, and smart budget builder.
+        </p>
+        <div class="hero-actions">
+          <a href="builder.html" class="btn btn-primary btn-lg">Start Building</a>
+          <a href="products.html" class="btn btn-secondary btn-lg">Browse Products</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <h3 data-count="500">0</h3>
+            <p>Products</p>
+          </div>
+          <div class="hero-stat">
+            <h3 data-count="50">0</h3>
+            <p>Brands</p>
+          </div>
+          <div class="hero-stat">
+            <h3 data-count="10000">0</h3>
+            <p>Builds Created</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-pc floating">
+          <div class="hero-pc-glow"></div>
+          <div class="hero-pc-card rgb-border">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Budget Filter -->
+  <section class="section" style="padding-top:40px;padding-bottom:40px">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Quick Start</span>
+        <h2 class="section-title">Build by Budget</h2>
+        <p class="section-desc">Select your budget and we'll suggest the best components</p>
+      </div>
+      <div class="budget-filters reveal">
+        <button class="budget-chip" data-budget="25000">₹25,000</button>
+        <button class="budget-chip" data-budget="30000">₹30,000</button>
+        <button class="budget-chip" data-budget="40000">₹40,000</button>
+        <button class="budget-chip" data-budget="50000">₹50,000</button>
+        <button class="budget-chip" data-budget="60000">₹60,000</button>
+        <button class="budget-chip" data-budget="75000">₹75,000</button>
+        <button class="budget-chip" data-budget="100000">₹1 Lakh</button>
+        <button class="budget-chip" data-budget="150000">₹1.5 Lakh</button>
+        <button class="budget-chip" data-budget="200000">₹2 Lakh</button>
+        <button class="budget-chip" data-budget="300000">₹3 Lakh+</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Components -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Top Picks</span>
+        <h2 class="section-title">Featured Components</h2>
+        <p class="section-desc">Hand-picked components loved by the community</p>
+      </div>
+      <div class="products-grid" id="featured-products"></div>
+      <div class="text-center mt-4 reveal">
+        <a href="products.html" class="btn btn-secondary">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Brands -->
+  <section class="section" style="background:var(--bg-secondary)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Partners</span>
+        <h2 class="section-title">Popular Brands</h2>
+        <p class="section-desc">Top manufacturers trusted by gamers worldwide</p>
+      </div>
+      <div class="brands-grid" id="brands-grid"></div>
+    </div>
+  </section>
+
+  <!-- Gaming Builds -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Pre-built</span>
+        <h2 class="section-title">Gaming Builds</h2>
+        <p class="section-desc">Curated builds for every gaming need — click to load instantly</p>
+      </div>
+      <div class="builds-grid" id="gaming-builds"></div>
+    </div>
+  </section>
+
+  <!-- Budget Builds -->
+  <section class="section" style="background:var(--bg-secondary)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Smart Build</span>
+        <h2 class="section-title">Budget Builds</h2>
+        <p class="section-desc">Optimized configurations for every price point</p>
+      </div>
+      <div class="perf-grid" id="budget-builds"></div>
+    </div>
+  </section>
+
+  <!-- Latest Products -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">New Arrivals</span>
+        <h2 class="section-title">Latest Products</h2>
+        <p class="section-desc">Fresh components just added to our catalog</p>
+      </div>
+      <div class="products-grid" id="latest-products"></div>
+    </div>
+  </section>
+
+  <!-- Performance Cards -->
+  <section class="section" style="background:var(--bg-secondary)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Capabilities</span>
+        <h2 class="section-title">What You Can Build</h2>
+      </div>
+      <div class="perf-grid reveal">
+        <div class="perf-card">
+          <div class="perf-icon">🎮</div>
+          <div class="perf-value">4K</div>
+          <div class="perf-label">Gaming at Ultra Settings</div>
+        </div>
+        <div class="perf-card">
+          <div class="perf-icon">📹</div>
+          <div class="perf-value">Stream</div>
+          <div class="perf-label">Live Streaming Setup</div>
+        </div>
+        <div class="perf-card">
+          <div class="perf-icon">🎬</div>
+          <div class="perf-value">8K</div>
+          <div class="perf-label">Video Editing Rig</div>
+        </div>
+        <div class="perf-card">
+          <div class="perf-icon">🤖</div>
+          <div class="perf-value">AI</div>
+          <div class="perf-label">Machine Learning PC</div>
+        </div>
+        <div class="perf-card">
+          <div class="perf-icon">💻</div>
+          <div class="perf-value">Dev</div>
+          <div class="perf-label">Programming Workstation</div>
+        </div>
+        <div class="perf-card">
+          <div class="perf-icon">🏢</div>
+          <div class="perf-value">Pro</div>
+          <div class="perf-label">Professional Workstation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-item">
+          <h3 data-count="500">0</h3>
+          <p>Products Available</p>
+        </div>
+        <div class="stat-item">
+          <h3 data-count="50">0</h3>
+          <p>Trusted Brands</p>
+        </div>
+        <div class="stat-item">
+          <h3 data-count="23">0</h3>
+          <p>Component Categories</p>
+        </div>
+        <div class="stat-item">
+          <h3 data-count="99">0</h3>
+          <p>Compatibility Checks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title">Customer Reviews</h2>
+        <p class="section-desc">What our users say about PC Builder Pro</p>
+      </div>
+      <div class="reviews-grid" id="reviews-grid"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" style="background:var(--bg-secondary)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Help</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list" id="faq-list"></div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter reveal">
+        <span class="section-tag">Stay Updated</span>
+        <h2 class="section-title">Join Our Newsletter</h2>
+        <p class="section-desc">Get the latest deals, new product alerts, and building tips</p>
+        <form class="newsletter-form" id="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><div class="logo-icon">⚡</div>PC Builder Pro</a>
+          <p>Build your dream gaming PC with our advanced compatibility checker, performance estimator, and budget optimizer.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="builder.html">PC Builder</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="compare.html">Compare</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Categories</h4>
+          <ul class="footer-links">
+            <li><a href="products.html?cat=cpu">Processors</a></li>
+            <li><a href="products.html?cat=gpu">Graphics Cards</a></li>
+            <li><a href="products.html?cat=motherboard">Motherboards</a></li>
+            <li><a href="products.html?cat=ram">Memory</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PC Builder Pro. All rights reserved.</span>
+        <div class="social-links">
+          <a href="#">𝕏</a><a href="#">▶</a><a href="#">💬</a><a href="#">📷</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Product Details</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/images.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/compatibility.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

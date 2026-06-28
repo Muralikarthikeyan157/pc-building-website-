@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Builder | PC Builder Pro</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/builder.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="loading-screen"><div class="loader-rgb"></div><div class="loading-text">LOADING</div></div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo"><div class="logo-icon">⚡</div>PC Builder Pro</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="builder.html" class="active">Builder</a>
+        <a href="products.html">Products</a>
+        <a href="compare.html">Compare</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="wishlist.html" class="nav-icon-btn">❤️<span class="badge-count wishlist-badge" style="display:none">0</span></a>
+        <a href="compare.html" class="nav-icon-btn">⚖️<span class="badge-count compare-badge" style="display:none">0</span></a>
+        <a href="saved-builds.html" class="nav-icon-btn">💾</a>
+        <button class="theme-toggle">🌙</button>
+        <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a><a href="builder.html">PC Builder</a><a href="products.html">Products</a>
+    <a href="compare.html">Compare</a><a href="wishlist.html">Wishlist</a><a href="saved-builds.html">Saved Builds</a>
+    <a href="about.html">About</a><a href="contact.html">Contact</a>
+  </div>
+
+  <div class="container builder-layout">
+    <div class="builder-main">
+      <div class="builder-header">
+        <h1>🛠️ PC Builder</h1>
+        <div class="builder-actions">
+          <button class="btn btn-secondary btn-sm" id="budget-suggest-btn">💰 Budget Suggest</button>
+          <button class="btn btn-secondary btn-sm" id="share-build-btn">📋 Share</button>
+          <button class="btn btn-secondary btn-sm" id="save-build-btn">💾 Save Build</button>
+          <button class="btn btn-secondary btn-sm" id="clear-build-btn">🗑️ Clear</button>
+        </div>
+      </div>
+
+      <!-- Budget Quick Select -->
+      <div class="budget-filters mb-3">
+        <button class="budget-chip" data-budget="40000">₹40K</button>
+        <button class="budget-chip" data-budget="50000">₹50K</button>
+        <button class="budget-chip" data-budget="75000">₹75K</button>
+        <button class="budget-chip" data-budget="100000">₹1L</button>
+        <button class="budget-chip" data-budget="150000">₹1.5L</button>
+        <button class="budget-chip" data-budget="200000">₹2L</button>
+      </div>
+
+      <div class="builder-slots" id="builder-slots"></div>
+
+      <!-- Product Picker -->
+      <div class="product-picker" id="product-picker">
+        <div class="picker-header">
+          <h3 id="picker-title">Select Component</h3>
+          <button class="modal-close" id="close-picker">&times;</button>
+        </div>
+        <div class="picker-filters">
+          <input type="text" id="picker-search" placeholder="Search components...">
+          <select id="picker-brand"><option value="">All Brands</option></select>
+          <select id="picker-sort">
+            <option value="rating">Top Rated</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </div>
+        <div class="picker-products" id="picker-products"></div>
+      </div>
+    </div>
+
+    <!-- Build Summary Sidebar -->
+    <aside class="build-summary">
+      <div class="summary-card">
+        <div class="summary-card-header">
+          <h2>BUILD SUMMARY</h2>
+        </div>
+        <div class="summary-total">
+          <span class="summary-total-label">Estimated Total</span>
+          <span class="summary-total-price" id="summary-total">₹0</span>
+        </div>
+        <div class="summary-wattage">
+          <span>Power Draw</span>
+          <span id="summary-wattage">0W estimated</span>
+        </div>
+        <div class="summary-wattage">
+          <span>PSU</span>
+          <span id="psu-recommendation">Recommended: 550W+ PSU</span>
+        </div>
+
+        <div class="overall-score">
+          <div class="overall-score-value" id="overall-score">0</div>
+          <div class="overall-score-label">Overall Score</div>
+        </div>
+
+        <div class="compat-panel">
+          <h3>Compatibility</h3>
+          <div class="compat-list" id="compat-list">
+            <p class="text-muted">Add components to check compatibility</p>
+          </div>
+        </div>
+
+        <div class="perf-estimator">
+          <h3>Performance Estimate</h3>
+          <div class="perf-bars" id="perf-bars"></div>
+        </div>
+
+        <div class="summary-actions">
+          <a href="saved-builds.html" class="btn btn-secondary">View Saved Builds</a>
+          <button class="btn btn-primary" id="save-build-btn-2" onclick="document.getElementById('save-build-btn').click()">Save This Build</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Budget Modal -->
+  <div class="modal-overlay" id="budget-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Budget Build Suggester</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Select your budget to get optimized component suggestions:</p>
+        <div class="budget-filters mt-3">
+          <button class="budget-chip" data-budget="25000">₹25,000</button>
+          <button class="budget-chip" data-budget="40000">₹40,000</button>
+          <button class="budget-chip" data-budget="50000">₹50,000</button>
+          <button class="budget-chip" data-budget="75000">₹75,000</button>
+          <button class="budget-chip" data-budget="100000">₹1 Lakh</button>
+          <button class="budget-chip" data-budget="150000">₹1.5 Lakh</button>
+          <button class="budget-chip" data-budget="200000">₹2 Lakh</button>
+          <button class="budget-chip" data-budget="300000">₹3 Lakh+</button>
+        </div>
+        <div id="budget-results" class="mt-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top:0">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding:0">
+        <span>&copy; 2026 PC Builder Pro</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/images.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/compatibility.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/builder.js"></script>
+</body>
+</html>
